@@ -74,6 +74,7 @@
         <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/ekreative/cordova/videoconversations" />
         <source-file src="src/android/ConversationActivity.java" target-dir="src/com/ekreative/cordova/videoconversations" />
         <source-file src="src/android/Dialog.java" target-dir="src/com/ekreative/cordova/videoconversations" />
+        <source-file src="src/android/FakeR.java" target-dir="src/com/ekreative/cordova/videoconversations" />
         <framework src="src/android/twiliovideo.gradle" custom="true" type="gradleReference" />
         <dependency id="cordova-plugin-compat" />
 
