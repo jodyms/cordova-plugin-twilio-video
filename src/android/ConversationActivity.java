@@ -40,11 +40,13 @@ import com.twilio.video.Room;
 import com.twilio.video.VideoTrack;
 import com.twilio.video.VideoView;
 
-import com.ekreative.cordova.R;
+import com.ekreative.cordova.videoconversations.FakeR;
 	
 import java.util.Collections;
 
 public class ConversationActivity extends AppCompatActivity {
+    private static FakeR fakeR;
+	
     private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
     private static final String TAG = "VideoActivity";
 
@@ -98,8 +100,10 @@ public class ConversationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+	fakeR = new FakeR(this);
 	    
-        setContentView(R.layout.activity_video);
+        setContentView(fakeR.getId("layout", "activity_video"));
+	//setContentView(R.layout.activity_video);
 /*
         primaryVideoView = (VideoView) findViewById(R.id.primary_video_view);
         thumbnailVideoView = (VideoView) findViewById(R.id.thumbnail_video_view);
