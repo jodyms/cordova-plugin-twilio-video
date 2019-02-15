@@ -58,7 +58,7 @@ public class VideoConversationPlugin extends CordovaPlugin {
         			intentTwilioVideo.putExtra("token", token);
                     intentTwilioVideo.putExtra("roomId", roomId);
                     // avoid calling other phonegap apps
-                    //intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
+                    intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
                     //that.cordova.startActivityForResult(that, intentTwilioVideo);
                     //that.cordova.getActivity().startActivity(intentTwilioVideo);
                     that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
