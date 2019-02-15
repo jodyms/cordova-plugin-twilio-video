@@ -104,19 +104,19 @@ public class ConversationActivity extends AppCompatActivity {
 	    
         setContentView(fakeR.getId("layout", "activity_video"));
 	//setContentView(R.layout.activity_video);
-/*
-        primaryVideoView = (VideoView) findViewById(R.id.primary_video_view);
-        thumbnailVideoView = (VideoView) findViewById(R.id.thumbnail_video_view);
-        videoStatusTextView = (TextView) findViewById(R.id.video_status_textview);
-        identityTextView = (TextView) findViewById(R.id.identity_textview);
 
-        connectActionFab = (FloatingActionButton) findViewById(R.id.connect_action_fab);
-        disconnectActionFab = (FloatingActionButton) findViewById(R.id.disconnect_action_fab);
-        switchCameraActionFab = (FloatingActionButton) findViewById(R.id.switch_camera_action_fab);
-        localVideoActionFab = (FloatingActionButton) findViewById(R.id.local_video_action_fab);
-        muteActionFab = (FloatingActionButton) findViewById(R.id.mute_action_fab);
-        speakerActionFab = (FloatingActionButton) findViewById(R.id.speaker_action_fab);
-*/
+        primaryVideoView = (VideoView) findViewById(fakeR.getId("id", "primary_video_view"));
+        thumbnailVideoView = (VideoView) findViewById(fakeR.getId("id", "thumbnail_video_view"));
+        videoStatusTextView = (TextView) findViewById(fakeR.getId("id", "video_status_textview"));
+        identityTextView = (TextView) findViewById(fakeR.getId("id", "identity_textview"));
+
+        connectActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "connect_action_fab"));
+        disconnectActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "disconnect_action_fab"));
+        switchCameraActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "switch_camera_action_fab"));
+        localVideoActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "local_video_action_fab"));
+        muteActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "mute_action_fab"));
+        speakerActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "speaker_action_fab"));
+
         /*
          * Enable changing the volume using the up/down keys during a conversation
          */
@@ -163,10 +163,10 @@ public class ConversationActivity extends AppCompatActivity {
                 createAudioAndVideoTracks();
                 connectToRoom(roomId);
             } else {
-		    /*
+		    
                 Toast.makeText(this,
-                        R.string.permissions_needed,
-                        Toast.LENGTH_LONG).show();*/
+                        fakeR.getId("string", "permissions_needed"),
+                        Toast.LENGTH_LONG).show();
             }
         }
     }
