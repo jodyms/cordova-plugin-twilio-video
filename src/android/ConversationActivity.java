@@ -40,6 +40,8 @@ import com.twilio.video.Room;
 import com.twilio.video.VideoTrack;
 import com.twilio.video.VideoView;
 
+import com.ekreative.cordova.R;
+	
 import java.util.Collections;
 
 public class ConversationActivity extends AppCompatActivity {
@@ -96,9 +98,9 @@ public class ConversationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-	    /*
+	    
         setContentView(R.layout.activity_video);
-
+/*
         primaryVideoView = (VideoView) findViewById(R.id.primary_video_view);
         thumbnailVideoView = (VideoView) findViewById(R.id.thumbnail_video_view);
         videoStatusTextView = (TextView) findViewById(R.id.video_status_textview);
