@@ -250,10 +250,9 @@ public class ConversationActivity extends AppCompatActivity {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA) ||
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.RECORD_AUDIO)) {
-		/*
-            Toast.makeText(this,
-                    R.string.permissions_needed,
-                    Toast.LENGTH_LONG).show();*/
+                Toast.makeText(this,
+                        fakeR.getId("string", "permissions_needed"),
+                        Toast.LENGTH_LONG).show();		
         } else {
             ActivityCompat.requestPermissions(
                     this,
@@ -312,9 +311,8 @@ public class ConversationActivity extends AppCompatActivity {
      */
     private void intializeUI() {
         //disconnectActionFab.hide();
-
         //connectActionFab.setImageDrawable(ContextCompat.getDrawable(this,
-        //        R.drawable.ic_call_white_24px));
+        //        fakeR.getId("drawable", "R.drawable.ic_call_white_24px")));
         //connectActionFab.show();
         //connectActionFab.setOnClickListener(connectActionClickListener());
 
@@ -628,16 +626,17 @@ public class ConversationActivity extends AppCompatActivity {
                     boolean enable = !localVideoTrack.isEnabled();
                     localVideoTrack.enable(enable);
                     int icon;
-			/*
+			
                     if (enable) {
-                        icon = R.drawable.ic_videocam_green_24px;
+			    
+                        icon = fakeR.getId("drawable", "ic_videocam_green_24px");
                         switchCameraActionFab.show();
                     } else {
-                        icon = R.drawable.ic_videocam_off_red_24px;
+                        icon = fakeR.getId("drawable", "ic_videocam_off_red_24px");
                         switchCameraActionFab.hide();
                     }
                     localVideoActionFab.setImageDrawable(
-                            ContextCompat.getDrawable(ConversationActivity.this, icon));*/
+                            ContextCompat.getDrawable(ConversationActivity.this, icon));
                 }
             }
         };
@@ -655,11 +654,11 @@ public class ConversationActivity extends AppCompatActivity {
                 if (localAudioTrack != null) {
                     boolean enable = !localAudioTrack.isEnabled();
                     localAudioTrack.enable(enable);
-			/*
+			
                     int icon = enable ?
-                            R.drawable.ic_mic_green_24px : R.drawable.ic_mic_off_red_24px;
+                            fakeR.getId("drawable", "ic_mic_green_24px") : fakeR.getId("drawable", "ic_mic_off_red_24px");
                     muteActionFab.setImageDrawable(ContextCompat.getDrawable(
-                            ConversationActivity.this, icon));*/
+                            ConversationActivity.this, icon));
                 }
             }
         };
@@ -671,12 +670,12 @@ public class ConversationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (audioManager.isSpeakerphoneOn()) {
                     audioManager.setSpeakerphoneOn(false);
-                    //speakerActionFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-                      //      R.drawable.ic_volume_down_white_24px));
+                    speakerActionFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            fakeR.getId("drawable", "ic_volume_down_white_24px")));
                 } else {
                     audioManager.setSpeakerphoneOn(true);
-                    //speakerActionFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
-                      //      R.drawable.ic_volume_down_green_24px));
+                    speakerActionFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
+                            fakeR.getId("drawable", "ic_volume_down_green_24px")));
                 }
             }
         };
@@ -692,10 +691,10 @@ public class ConversationActivity extends AppCompatActivity {
                         if (e == null) {
                             ConversationActivity.this.accessToken = result.get("token").getAsString();
                         } else {
-				/*
+				
                             Toast.makeText(ConversationActivity.this,
-                                    R.string.error_retrieving_access_token, Toast.LENGTH_LONG)
-                                    .show();*/
+                                    fakeR.getId("string", "error_retrieving_access_token"), Toast.LENGTH_LONG)
+                                    .show();
                         }
                     }
                 });
