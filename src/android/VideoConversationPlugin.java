@@ -1,4 +1,4 @@
-package cordova-plugin-twilio-video;
+package com.ekreative.cordova.videoconversations;
 
 import org.apache.cordova.BuildHelper;
 import org.apache.cordova.CallbackContext;
