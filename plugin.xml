@@ -69,6 +69,10 @@
                 android:name="com.ekreative.cordova.videoconversations.ConversationActivity"
                 android:configChanges="orientation|screenSize"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+		            <intent-filter>
+				  <action android:name="com.ekreative.cordova.videoconversations.ConversationActivity" />
+				  <category android:name="android.intent.category.DEFAULT" />
+			    </intent-filter>
             </activity>
         </config-file>
         <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/ekreative/cordova/videoconversations" />
