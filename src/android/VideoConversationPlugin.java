@@ -34,54 +34,64 @@ public class VideoConversationPlugin extends CordovaPlugin {
 
     
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		this.callbackContext = callbackContext;
-		if (action.equals("open")) {
-		   	this.openRoom(args);
-		}
-        return true;
+// 		this.callbackContext = callbackContext;
+// 		if (action.equals("open")) {
+// 		   	this.openRoom(args);
+// 		}
+//         return true;
+		 Context context = cordova.getActivity().getApplicationContext();
+		if(action.equals("open")) {
+		    this.openNewActivity(context);
+		    return true;
+        	}
+        return false;
 	}
+	private void openNewActivity(Context context) {
+        Intent intent = new Intent(context, ConversationActivity.class);
+        this.cordova.getActivity().startActivity(intent);
+    }
 
-	public void openRoom(final JSONArray args) {
-        try {
-            this.roomId = args.getString(0);
-            this.token = args.getString(1);
-            final CordovaPlugin that = this;
-            final String token = this.token;
-            final String roomId = this.roomId;
+// 	public void openRoom(final JSONArray args) {
+//         try {
+//             this.roomId = args.getString(0);
+//             this.token = args.getString(1);
+//             final CordovaPlugin that = this;
+//             final String token = this.token;
+//             final String roomId = this.roomId;
 
-            LOG.d("TOKEN", token);
-            LOG.d("ROOMID", roomId);
-     		cordova.getThreadPool().execute(new Runnable() {
-                public void run() {
+//             LOG.d("TOKEN", token);
+//             LOG.d("ROOMID", roomId);
+//      		cordova.getThreadPool().execute(new Runnable() {
+//                 public void run() {
 
-                    Intent intentTwilioVideo = new Intent("com.ekreative.cordova.videoconversations.ConversationActivity");
-        	    intentTwilioVideo.putExtra("token", token);
-                    intentTwilioVideo.putExtra("roomId", roomId);
-                    // avoid calling other phonegap apps
-//                     intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
-//                     that.cordova.startActivityForResult(that, intentTwilioVideo);
-//                     that.cordova.getActivity().startActivity(intentTwilioVideo);
-//                     that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
-		    cordova.startActivityForResult((CordovaPlugin) this, intentTwilioVideo, 0);
-                }
+//                     Intent intentTwilioVideo = new Intent("com.ekreative.cordova.videoconversations.ConversationActivity");
+//         	    intentTwilioVideo.putExtra("token", token);
+//                     intentTwilioVideo.putExtra("roomId", roomId);
+//                     // avoid calling other phonegap apps
+// //                     intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
+// //                     that.cordova.startActivityForResult(that, intentTwilioVideo);
+// //                     that.cordova.getActivity().startActivity(intentTwilioVideo);
+// //                     that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
+// 		    cordova.startActivityForResult((CordovaPlugin) this, intentTwilioVideo, 0);
+//                 }
                     
-            });
-        } catch (JSONException e) {
-            //Log.e(TAG, "Invalid JSON string: " + json, e);
-            //return null;
-        }
-    }
+//             });
+//         } catch (JSONException e) {
+//             //Log.e(TAG, "Invalid JSON string: " + json, e);
+//             //return null;
+//         }
+//     }
 
-    public Bundle onSaveInstanceState() {
-        Bundle state = new Bundle();
-        state.putString("token", this.token);
-        state.putString("roomId", this.roomId);
-        return state;
-    }
+//     public Bundle onSaveInstanceState() {
+//         Bundle state = new Bundle();
+//         state.putString("token", this.token);
+//         state.putString("roomId", this.roomId);
+//         return state;
+//     }
 
-    public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {
-        this.token = state.getString("token");
-        this.roomId = state.getString("roomId");
-        this.callbackContext = callbackContext;
-    }
+//     public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {
+//         this.token = state.getString("token");
+//         this.roomId = state.getString("roomId");
+//         this.callbackContext = callbackContext;
+//     }
 }
