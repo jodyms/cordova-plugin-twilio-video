@@ -54,14 +54,15 @@ public class VideoConversationPlugin extends CordovaPlugin {
      		cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
 
-                    Intent intentTwilioVideo = new Intent(that.cordova.getActivity().getBaseContext(), ConversationActivity.class);
-        			intentTwilioVideo.putExtra("token", token);
+                    Intent intentTwilioVideo = new Intent("com.ekreative.cordova.videoconversations.ConversationActivity");
+        	    intentTwilioVideo.putExtra("token", token);
                     intentTwilioVideo.putExtra("roomId", roomId);
                     // avoid calling other phonegap apps
-                    intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
+//                     intentTwilioVideo.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
 //                     that.cordova.startActivityForResult(that, intentTwilioVideo);
-                    that.cordova.getActivity().startActivity(intentTwilioVideo);
-                    that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
+//                     that.cordova.getActivity().startActivity(intentTwilioVideo);
+//                     that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
+		    cordova.startActivityForResult((CordovaPlugin) this, intentTwilioVideo, 0);
                 }
                     
             });
